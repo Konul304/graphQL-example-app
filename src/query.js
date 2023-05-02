@@ -27,26 +27,21 @@ function BookList() {
 
   return (
     <ul>
-    {data.books.map(({ id, name, email ,address,posts}) => (
-      <li key={id}>
-        <strong>{name}</strong> {email}
-        {/* <li>{posts}</li> */}
-        <li>{address.city}</li>
-        <ul>
-        {posts.map((post) => (
+      {data.books.map(({ id, name, email, address, posts }) => (
+        <li key={id}>
+          <strong>{name}</strong> {email}
+          {/* <li>{posts}</li> */}
+          <li>{address.city}</li>
+          <ul>
+            {posts.map((post) => (
               <li key={post.id}>
                 <strong>{post.title}</strong> {post.content}
               </li>
             ))}
-        </ul>
-      </li>
-    ))}
-    {/* {data.posts.map((post) => (
-      <li key={post.id}>
-        <strong>{post.title}</strong> {post.content}
-      </li>
-    ))} */}
-  </ul>
+          </ul>
+        </li>
+      ))}
+    </ul>
   );
 }
 

@@ -14,7 +14,6 @@ query GetBooks {
       title
       content
     }
-  
 }
 }
 `;
@@ -26,22 +25,20 @@ function BookList() {
   if (error) return <p>Error :( </p>;
 
   return (
-    <ul>
+    <div>
       {data.books.map(({ id, name, email, address, posts }) => (
-        <li key={id}>
+        <ul key={id}>
           <strong>{name}</strong> {email}
           {/* <li>{posts}</li> */}
           <li>{address.city}</li>
-          <ul>
-            {posts.map((post) => (
-              <li key={post.id}>
-                <strong>{post.title}</strong> {post.content}
-              </li>
-            ))}
-          </ul>
-        </li>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <strong>{post.title}</strong> {post.content}
+            </li>
+          ))}
+        </ul>
       ))}
-    </ul>
+    </div>
   );
 }
 
